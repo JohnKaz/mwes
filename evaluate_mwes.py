@@ -5,7 +5,9 @@ def get_mwe_info(token, field):
     info = ""
     
     if field == "xpos" and token[field] != None:
-        info = token["xpos"].lower()
+        temp = token["xpos"].lower()
+        if temp in ["vid", "lvc", "lvcfull", "lvccause", "vpc", "vpcfull", "mvc", "iav", "irv"]:
+            info = temp
     elif field == "deprel" and ":" in token[field]:
         temp = token["deprel"].split(":")[-1]
         if temp in ["vid", "lvc", "lvcfull", "lvccause", "vpc", "vpcfull", "mvc", "iav", "irv"]:
