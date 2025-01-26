@@ -24,7 +24,7 @@ with open("input.conllu") as file:
 
 Calculates three metrics for a given conllu file containing predicted mwe annotations: Per-token recall, Per-token precision and Per-VMWE recall.
 
-Example of usage (for file containing predictions in the XPOS collumn:
+Example of usage (for file containing predictions in the XPOS collumn):
 
 ```
 with open("predictions.conllu", "r", encoding="utf-8") as file:
