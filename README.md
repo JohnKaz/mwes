@@ -4,7 +4,7 @@ A small set of tools for modifying and evaluating conllu files containing Multi-
 
 ## move_mwes.py
 
-Copies MWE type information from `field_in` (here: "misc", "xpos" or "deprel") to `field_out` (here: "xpos" or "deprel").
+Copies MWE type information from `field_in` (here: "misc", "xpos" or "deprel") to `field_out` (here: "xpos" or "deprel").  
 For moves between the "xpos" and "deprel" collumns the parameter `keep` can be set to `True` in order to preserve mwe info in both collumns.
 
 Examples of usage:
