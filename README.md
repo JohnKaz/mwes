@@ -4,20 +4,21 @@ A small set of tools for modifying and evaluating conllu files containing Multi-
 
 ## move_mwes.py
 
-Copies MWE type information from the MISC (10th) collumn to either the XPOS (5th) or DEPREL (8th) collumn.
+Copies MWE type information from `field_in` (here: "misc", "xpos" or "deprel") to `field_out` (here: "xpos" or "deprel")
+For moves between the "xpos" and "deprel" collumns the parameter `keep` can be set to `True` in order to preserve mwe info in both collumns.
 
 Examples of usage:
 
-(move info to XPOS collumn)
+(move mwe info from "misc" to "xpos")
 ```
 with open("input.conllu") as file:
-    move_mwes(file, "output.conllu", "xpos")
+    move_mwes(file, "output.conllu", "misc", "xpos")
 ```
 
-(move info to DEPREL collumn)
+(copy mwe info from "xpos" to "deprel")
 ```
 with open("input.conllu") as file:
-    move_mwes(file, "output.conllu", "deprel")
+    move_mwes(file, "output.conllu", "xpos", "deprel", keep=True)
 ```
 
 ## evaluate_mwes.py
