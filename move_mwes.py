@@ -2,7 +2,7 @@ from conllu import parse_incr
 
 def move_mwes(input_file, output_file, field_in, field_out, keep=False):
 
-    # case one: Move mwe annotations from "deprel" field to "xpos"
+    # case one: move mwe annotations from "deprel" field to "xpos"
     if field_in == "deprel" and field_out == "xpos":
         for sentence in parse_incr(input_file):
             for token in sentence:
@@ -20,7 +20,7 @@ def move_mwes(input_file, output_file, field_in, field_out, keep=False):
                 serialized = sentence.serialize()
                 f.write(serialized)
                 
-    # case two: Move mwe annotations from "xpos" field to "deprel"
+    # case two: move mwe annotations from "xpos" field to "deprel"
     elif field_in == "xpos" and field_out == "deprel":
         for sentence in parse_incr(input_file):
             for token in sentence:
@@ -36,7 +36,8 @@ def move_mwes(input_file, output_file, field_in, field_out, keep=False):
             with open(output_file, "a") as f:
                 serialized = sentence.serialize()
                 f.write(serialized)
-                
+
+    # case three: move mwe annotations from "misc" field
     elif field_in == "misc":
         # store mwe type info
         mwe_type = [''] * 8
